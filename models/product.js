@@ -38,4 +38,12 @@ module.exports = class Product {
   static fetchAll(cb) {
     getProductsFromFile(cb);
   }
+
+  static findById(id, cb) {
+    getProductsFromFile(products => {
+      //The callback function is because find is Async. function 
+      const product = products.find(p => p.id === id);
+      cb(product)
+    })
+  }
 };

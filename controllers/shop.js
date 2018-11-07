@@ -13,6 +13,10 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
+  //The callback function is because findById(see models/product) is Async. function 
+  Product.findById(prodId, prod => {
+    console.log(prod)
+  })
   res.render('shop/product-detail', {
     path: '',
     pageTitle: prodId
