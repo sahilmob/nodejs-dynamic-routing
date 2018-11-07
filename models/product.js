@@ -59,4 +59,16 @@ module.exports = class Product {
       cb(product)
     })
   }
+
+  static deleteById(id) {
+    getProductsFromFile(products => {
+      //The callback function is because find is Async. function 
+      const updatedProducts = products.filter(p => p.id !== id);
+      fs.writeFile(p, JSON.stringify(updatedProducts), err => {
+        if (!err) {
+
+        }
+      })
+    })
+  }
 };
